@@ -1,7 +1,6 @@
-
 # PetStore Monotlithic SpringBoot API
 
-Getting started
+## Getting started
 
 This is a monolithic api made with springboot, composed of 3 controllers (Pet , Order and User). Each controller handles CRUD operations (create , read , update , delete).
 
@@ -23,6 +22,7 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 ```
 
 You can also change the application port and name.
+
 ```bash
 server.port=4000
 spring.application.name=PetStore-Monolithique
@@ -31,16 +31,11 @@ spring.application.name=PetStore-Monolithique
 ### Running the App locally
 
 #### Database
+
 Spin up a docker container with the command
+
 ```bash
-docker run  --name postgres-container -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres:latest
-```
-Create the database
-```bash
-docker exec -it postgres-container psql -U postgres
-```
-```bash
-CREATE DATABASE petstore;
+docker compose up -d
 ```
 
 #### Generate the JAR
@@ -57,7 +52,8 @@ java -jar target/PetStore-Monolithique-0.0.1-SNAPSHOT.jar
 
 ### Running the App with Docker
 
-You will need the previous JAR.
+Uncomment the Spring service inside docker-compose.yml and run:
+
 ```bash
 docker-compose up --build
 ```
